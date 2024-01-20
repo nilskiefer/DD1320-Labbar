@@ -26,7 +26,7 @@ class Node:
         self.data = data
         self.next = next
         
-    def __int__(self):
+    def getVal(self):
         return self.data
     
     def __iter__(self):
