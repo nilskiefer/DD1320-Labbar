@@ -1,5 +1,6 @@
 import unittest
 from linkedQFile import LinkedQ
+import sys
 
 class TestQueue(unittest.TestCase):
 
@@ -29,7 +30,7 @@ def trollkarlsprogram(kort):
 
 def main():
     print("Ange ordningen på korten (exempel: 3 1 4 2 5 stop show stop show stop show...):")
-    inmatning = input().split()
+    inmatning = sys.stdin.readline().split()
     if len(inmatning) != 5:
         print("Du får inte ange fler än 5 kort!")
         main()
