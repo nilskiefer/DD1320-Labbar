@@ -1,5 +1,4 @@
 import unittest
-from arrayQFile import ArrayQ
 from linkedQFile import LinkedQ
 
 class TestQueue(unittest.TestCase):
@@ -34,11 +33,11 @@ def main():
     if len(inmatning) != 5:
         print("Du får inte ange fler än 5 kort!")
         main()
-    q = ArrayQ()
+    q = LinkedQ()
     for card in inmatning:
         q.enqueue(int(card))
     print("De kommer ut i denna ordning:", " ".join(map(str, trollkarlsprogram(q))))
 
 if __name__ == "__main__":
-    unittest.main()
-    #main()
+    #unittest.main()
+    main()
