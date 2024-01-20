@@ -43,8 +43,6 @@ def main():
     while not inmatning.isEmpty():
         inmatning.enqueue(inmatning.dequeue())
         q.enqueue(inmatning.dequeue())
-    
-    
     while not q.isEmpty():
         print(q.dequeue()+" ", end="")
     
