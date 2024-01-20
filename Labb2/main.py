@@ -1,3 +1,4 @@
+# Nils Kiefer och Oscar Persson
 import unittest
 import sys
 from linkedQFile import LinkedQ

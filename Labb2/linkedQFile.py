@@ -1,3 +1,4 @@
+# Nils Kiefer och Oscar Persson
 class LinkedQ:
     def __init__(self):
         self.first = None
