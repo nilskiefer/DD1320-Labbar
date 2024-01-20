@@ -1,6 +1,7 @@
 import unittest
-from linkedQFile import LinkedQ
 import sys
+from linkedQFile import LinkedQ
+
 
 class TestQueue(unittest.TestCase):
 
@@ -29,13 +30,11 @@ def trollkarlsprogram(kort):
     return temp
 
 def main():
-    print("Ange ordningen på korten (exempel: 3 1 4 2 5 stop show stop show stop show...):")
     inmatning = sys.stdin.readline().split()
     q = LinkedQ()
     for card in inmatning:
         q.enqueue(card)
-    print("De kommer ut i denna ordning:", " ".join(map(str, trollkarlsprogram(q))))
-
+    print(" ".join(map(str, trollkarlsprogram(q))))
 if __name__ == "__main__":
     #unittest.main()
     main()
