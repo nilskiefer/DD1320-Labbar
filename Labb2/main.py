@@ -31,9 +31,6 @@ def trollkarlsprogram(kort):
 def main():
     print("Ange ordningen på korten (exempel: 3 1 4 2 5 stop show stop show stop show...):")
     inmatning = sys.stdin.readline().split()
-    if len(inmatning) != 5:
-        print("Du får inte ange fler än 5 mojänger!")
-        main()
     q = LinkedQ()
     for card in inmatning:
         q.enqueue(card)
