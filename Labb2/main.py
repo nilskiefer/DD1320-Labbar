@@ -22,6 +22,12 @@ class TestQueue(unittest.TestCase):
         self.assertEqual(q.dequeue(), 1)
         self.assertEqual(q.dequeue(), 2)
         self.assertEqual(q.dequeue(), 3)
+
+def sphagettifiArray(array):
+    q = LinkedQ()
+    for i in array:
+        q.enqueue(i)
+    return q
         
 def trollkarlsprogram(kort):
     temp = []
@@ -31,11 +37,17 @@ def trollkarlsprogram(kort):
     return temp
 
 def main():
-    inmatning = sys.stdin.readline().split()
+    userInput = sys.stdin.readline().split()
+    inmatning = sphagettifiArray(userInput)
     q = LinkedQ()
-    for card in inmatning:
-        q.enqueue(card)
-    print(" ".join(map(str, trollkarlsprogram(q))))
+    while not inmatning.isEmpty():
+        inmatning.enqueue(inmatning.dequeue())
+        q.enqueue(inmatning.dequeue())
+    
+    
+    while not q.isEmpty():
+        print(q.dequeue()+" ", end="")
+    
 if __name__ == "__main__":
     #unittest.main()
     main()

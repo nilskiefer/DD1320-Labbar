@@ -16,7 +16,6 @@ class LinkedQ:
     def dequeue(self):
         if self.first == None:
             return None
-        
         temp = self.first
         self.first = self.first.next
         return temp.data
@@ -39,9 +38,6 @@ class Node:
         self.next = next
         
     def getVal(self):
-        return self.data
-    
-    def __iter__(self):
         return self.data
     
     def __next__(self):
