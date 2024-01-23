@@ -7,7 +7,7 @@ from linkedQFile import LinkedQ
 class TestQueue(unittest.TestCase):
 
     def test_isEmpty(self):
-        #isEmpty ska returnera True för tom kö, False annars
+        #isEmpty ska returnera True för tom kö, False annar
         q = LinkedQ()
         self.assertTrue(q.isEmpty(), "isEmpty på tom kö")
         q.enqueue(17)
