@@ -6,36 +6,47 @@ gamla = Bintree()
 queue = LinkedQ()
 
 
-def readfile(filename = "word3.txt"):
-    with open(filename, "r", encoding = "utf-8") as file:
-        tree = Bintree()
+def readfile(filename="word3.txt"):
+    with open(filename, "r", encoding="utf-8") as file:
         for line in file:
-            line=line.strip()
-            if line in tree:
+            line = line.strip()
+            if line in svenska:
                 gamla.put(line)
-                pass
-            svenska.put(line)
-    return tree
+            else:
+                svenska.put(line)
+
+
 def makechildren(startord):
-    alfabet = "abcdefghijklmnopqrstuvwxyzåäö"
+    alfabet = "qwertyuiopåasdfghjklöäzxcvbnm"
+    gamla.put(startord)
     for i in range(len(startord)):
         for j in alfabet:
-            neword = startord[:i] + j + startord[i+1:] # Byter ut bokstaven i startord på plats i mot bokstaven j
+            neword = startord[:i] + j + startord[i + 1 :]
             if neword in svenska and neword not in gamla:
-                queue.enqueue(neword)
-                gamla.put(neword)
-def main():
-    readfile()
-    startord = input("Ange startord: ")
-    slutord = input("Ange slutord: ")
+                print(neword)  # Print the new word on the screen
+                gamla.put(neword)  # Add the new word to gamla
+
+
+def find_path(startord, slutord):
     queue.enqueue(startord)
     while not queue.isEmpty():
-        ordet = queue.dequeue()
-        if ordet == slutord:
-            print("Det finns en väg till", slutord)
-            break
-        else:
-            makechildren(ordet)
-                     
+        current_word = queue.dequeue()
+        if current_word == slutord:
+            return True  # Found the path
+        makechildren(current_word)
+    return False  # No path found
+
+
+def main():
+    readfile()
+    startord = input("Startord: ")
+    slutord = input("Slutord: ")
+    if find_path(startord, slutord):
+        print("There is a path from", startord, "to", slutord)
+    else:
+        print("No path found")
+    print("done")
+
+
 if __name__ == "__main__":
     main()
