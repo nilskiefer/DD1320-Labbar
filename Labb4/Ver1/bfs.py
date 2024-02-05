@@ -34,9 +34,9 @@ def makechildren(startord):
 def find_path(startord, slutord):
     q.enqueue(startord)
     while not q.isEmpty():
-        current_word = q.dequeue()
-        if current_word == slutord:
+        if slutord in gamla:
             return True  # Found the path
+        current_word = q.dequeue()
         makechildren(current_word)
     return False  # No path found
 
