@@ -58,3 +58,4 @@ En kö används i bredden-först-sökning (BFS) av flera anledningar:
 Bredden-först-sökning är känd för att ge den kortaste lösningen i termer av antalet kanter från startnoden till målnoden på grund av följande skäl:
 1. **Nivåvis Utforskning:** Eftersom BFS utforskar alla noder på en viss nivå innan den går vidare till nästa, garanteras det att den kortaste vägen hittas först om den finns.
 2. **Förhindrar Omvägar:** BFS lägger inte till noder i kön som redan har utforskats eller som står i kön för att utforskas, vilket förhindrar omvägar och onödig utforskning av längre vägar.
+
