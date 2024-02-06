@@ -22,9 +22,15 @@ def makechildren(startord):
     for i in range(len(startord)):
         for j in alfabet:
             neword = startord[:i] + j + startord[i + 1 :]
-            # startord[:i] hämtar delsträngen av startord från början upp till (men inte inklusive) bokstaven på position i. Detta fångar alla bokstäver före den vi vill ersätta.
+            # startord[:i] hämtar delsträngen av startord från början upp till
+            # (men inte inklusive) bokstaven på position i. Detta fångar alla
+            # bokstäver före den vi vill ersätta.
+
             # j representerar den nya bokstaven som vi vill infoga på position i.
-            # startord[i+1:] hämtar delsträngen av startord som börjar från bokstaven efter den på position i. Detta fångar alla bokstäver efter den vi vill ersätta.
+
+            # startord[i+1:] hämtar delsträngen av startord som börjar från
+            # bokstaven efter den på position i. Detta fångar alla bokstäver
+            # efter den vi vill ersätta.
             if neword in svenska and neword not in gamla:
                 print(neword)  # Print the new word on the screen
                 gamla.put(neword)  # Add the new word to gamla
