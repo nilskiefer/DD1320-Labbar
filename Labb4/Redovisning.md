@@ -22,7 +22,7 @@ $$
 - 'tro': ['tre', 'tri', 'trå', 'trä']
 - 'trå': ['tre', 'tri', 'tro', 'trä']
 - 'trä': ['tre', 'tri', 'tro', 'trå']
-![[Pasted image 20240202015009.png]]
+![alt text](<Pasted image 20240202015009.png>)
 ##### Rita upp en graf med riktade kanter (bestäm riktningar själv), och skriv upp grannmatris samt grannlista för följande ord: arg ärg agg alg ark arm art arv.
 *Antal noder:* 8
 *Andel av grannmatrisen som är fylld:* 12.5%
@@ -49,7 +49,7 @@ $$
 - 'arm': ['art']
 - 'art': ['arv']
 - 'arv': ['arg']
-![[Pasted image 20240202015316.png]]
+![alt text](<Pasted image 20240202015316.png>) [alt text](Redovisning.md)
 ### Varför Används en Kö i Bredden-först-sökning?
 En kö används i bredden-först-sökning (BFS) av flera anledningar:
 1. **Systematisk Utforskning:** BFS utforskar grafen nivå för nivå. En kö hjälper till att hålla reda på vilken nod som ska utforskas härnäst, vilket säkerställer att alla noder på en viss nivå utforskas innan man går vidare till nästa nivå.
