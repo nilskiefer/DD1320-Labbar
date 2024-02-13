@@ -6,6 +6,12 @@ gamla = Bintree()
 q = LinkedQ()
 
 
+class ParentNode:
+    def __init__(self, word, parent=None):
+        self.word = word
+        self.parent = parent
+
+
 def readfile(filename="word3.txt"):
     with open(filename, "r", encoding="utf-8") as file:
         for line in file:
@@ -54,18 +60,10 @@ def main():
     endnode = find_path(startord, slutord)
     if endnode:
         print("Det finns en väg från", startord, "till", slutord)
-        print(startord)
         printchain(endnode)  # Print the chain from the end node
     else:
         print("Ingen väg hittades")
-    print("done")
 
 
 if __name__ == "__main__":
     main()
-
-
-class ParentNode:
-    def __init__(self, word, parent=None):
-        self.word = word
-        self.parent = parent
