@@ -22,17 +22,17 @@ def readfile(filename="word3.txt"):
                 svenska.put(line)
 
 
-def makechildren(startnode):
-    startord = startnode.word
+def makechildren(prevNode):
+    prevOrd = prevNode.word
     alfabet = "qwertyuiopåasdfghjklöäzxcvbnm"
-    gamla.put(startord)
-    for i in range(len(startord)):
+    gamla.put(prevOrd)
+    for i in range(len(prevOrd)):
         for j in alfabet:
-            neword = startord[:i] + j + startord[i + 1 :]
+            neword = prevOrd[:i] + j + prevOrd[i + 1 :]
             if neword in svenska and neword not in gamla:
                 gamla.put(neword)
-                newnode = ParentNode(neword, startnode)
-                q.enqueue(newnode)
+                newNode = ParentNode(neword, prevNode)
+                q.enqueue(newNode)
 
 
 def find_path(startord, slutord):
@@ -46,11 +46,21 @@ def find_path(startord, slutord):
     return None
 
 
+def utskriftSist(lista):
+    if len(lista) > 0:
+        utskriftSist(lista[1:])
+        print(lista[0])
+
+
 def printchain(endnode):
     node = endnode
+    list = []
+    # Skulle så klart också gå att göra utan att avända utskriftSist
+    # Men i mån av att kunna välja så valde jag att använda den
     while node:
-        print(node.word)
+        list.append(node.word)
         node = node.parent
+    utskriftSist(list)
 
 
 def main():
