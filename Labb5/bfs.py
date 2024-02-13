@@ -46,21 +46,10 @@ def find_path(startord, slutord):
     return None
 
 
-def utskriftSist(lista):
-    if len(lista) > 0:
-        utskriftSist(lista[1:])
-        print(lista[0])
-
-
-def printchain(endnode):
-    node = endnode
-    list = []
-    # Skulle så klart också gå att göra utan att avända utskriftSist
-    # Men i mån av att kunna välja så valde jag att använda den
-    while node:
-        list.append(node.word)
-        node = node.parent
-    utskriftSist(list)
+def printchain(node):
+    if node:
+        printchain(node.parent)
+        print(node.word)
 
 
 def main():
