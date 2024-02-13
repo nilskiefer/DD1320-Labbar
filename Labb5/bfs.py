@@ -1,5 +1,4 @@
 from bintreeFile import Bintree
-from bintreeFile import ParentNode
 from linkedQFile import LinkedQ
 
 svenska = Bintree()
@@ -64,3 +63,9 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+class ParentNode:
+    def __init__(self, word, parent=None):
+        self.word = word
+        self.parent = parent

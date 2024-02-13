@@ -48,12 +48,6 @@ class Bintree:
         # Offentlig metod för att skriva ut hela trädet
 
 
-class ParentNode:
-    def __init__(self, word, parent=None):
-        self.word = word
-        self.parent = parent
-
-
 class Node:
     def __init__(self, value, parent=None):
         self.__value = value
@@ -78,7 +72,3 @@ class Node:
 
     def setRight(self, right):
         self.__right = right
-
-
-class SolutionFound(Exception):
-    pass

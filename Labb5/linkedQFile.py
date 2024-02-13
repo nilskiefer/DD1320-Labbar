@@ -32,12 +32,6 @@ class LinkedQ:
         return count
 
 
-class ParentNode:
-    def __init__(self, word, parent=None):
-        self.word = word
-        self.parent = parent
-
-
 class Node:
     def __init__(self, data, next=None):
         self.data = data
