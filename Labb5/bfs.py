@@ -11,6 +11,11 @@ class ParentNode:
         self.word = word
         self.parent = parent
 
+    def printchain(self):
+        if self.parent:
+            self.parent.printchain()
+        print(self.word)
+
 
 def readfile(filename="word3.txt"):
     with open(filename, "r", encoding="utf-8") as file:
@@ -46,12 +51,6 @@ def find_path(startord, slutord):
     return None
 
 
-def printchain(node):
-    if node:
-        printchain(node.parent)
-        print(node.word)
-
-
 def main():
     readfile()
     startord = input("Startord: ")
@@ -59,7 +58,7 @@ def main():
     endnode = find_path(startord, slutord)
     if endnode:
         print("Det finns en väg från", startord, "till", slutord)
-        printchain(endnode)
+        ParentNode.printchain(endnode)
     else:
         print("Ingen väg hittades")
 
