@@ -58,7 +58,7 @@ def main():
     endnode = find_path(startord, slutord)
     if endnode:
         print("Det finns en väg från", startord, "till", slutord)
-        ParentNode.printchain(endnode)
+        endnode.printchain()
     else:
         print("Ingen väg hittades")
 
