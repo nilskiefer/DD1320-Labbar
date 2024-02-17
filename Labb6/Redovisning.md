@@ -16,6 +16,10 @@ Timeit mäter exekveringstiden för koden specificerad i `stmt` över antalet it
 
 Timeit skriver ut totala exekveringstiden (i sekunder) för koden i `stmt` över de `number` antal iterationer som utförts.
 
+# Sökningsmetoder
+Linjärsökning tidskomplexitet: $O(n)$
+Binärsökningstid: $O(n\ln(n))$
+Hastabellsökning: $O(1)$
 
 | Liststorlek (n) | Linjärsökningstid (s) | Binärsökningstid (s) | Hashtabellsökningstid (s) |
 |-----------------|-----------------------|----------------------|---------------------------|
@@ -23,4 +27,14 @@ Timeit skriver ut totala exekveringstiden (i sekunder) för koden i `stmt` över
 | 500 000         | 7.5831                | 0.3638               | 0.0852                    |
 | 1 000 000       | 9.6254                | 0.3998               | 0.1149                    |
 | -               | 10.2317               | 0.3785               | 0.0999                    |
+
+# Sorteringsalgoritmer
+Bubblesort tidskomplexitet: $O(n^2)$
+Bogosort tidskomplexitet: $O(∞)$
+| Liststorlek (n) | Bubble Sort Tid (s)   | BogoSort Tid (s)       |
+|-----------------|-----------------------|------------------------|
+| 10              | 2.3959e-05            | 7.25e-06               |
+| 100             | 0.0018963             | 3.2417e-05             |
+| 1000            | 0.18335               | 0.00034                |
+| 10000           | 19.1982               | 0.02047                |
 
