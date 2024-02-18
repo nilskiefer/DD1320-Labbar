@@ -19,26 +19,28 @@ Timeit skriver ut totala exekveringstiden (i sekunder) för koden i `stmt` över
 
 # Sökningsmetoder
 Linjärsökning tidskomplexitet: $O(n)$
-Binärsökningstid: $O(n\ln(n))$
+Binärsökningstid: $O(\ln(n))$
 Hastabellsökning: $O(1)$
 
-| Liststorlek (n) | Linjärsökningstid (s) | Binärsökningstid (s) | Hashtabellsökningstid (s) |
-|-----------------|-----------------------|----------------------|---------------------------|
-| 250 000         | 5.2810                | 0.3476               | 0.0760                    |
-| 500 000         | 7.5831                | 0.3638               | 0.0852                    |
-| 1 000 000       | 9.6254                | 0.3998               | 0.1149                    |
-| ALL               | 10.2317               | 0.3785               | 0.0999                    |
-
-![[538dafad-2f73-48df-bacd-b4904722fa56 1.jpeg]]
+| Deluppsättning Storlek | Linjärsökningstid | Binärsökningstid | Hashtabellsökningstid |
+|------------------------|-------------------|------------------|-----------------------|
+| 10 | 0.00000031 | 0.00000089 | 0.00000032 |
+| 100 | 0.00000090 | 0.00000137 | 0.00000028 |
+| 1000 | 0.00000719 | 0.00000226 | 0.00000032 |
+| 10000 | 0.00006174 | 0.00000286 | 0.00000036 |
+| 100000 | 0.00034283 | 0.00000395 | 0.00000083 |
+| 1000000 | 0.00111350 | 0.00000422 | 0.00000114 |
+![[5968fcdc-bf6c-40d5-a6e1-d18de1020e4c.jpeg]]
 # Sorteringsalgoritmer
 Bubblesort tidskomplexitet: $O(n^2)$
 Bogosort tidskomplexitet: $O(∞)$
+Stalinsort tidskomplexitet: $O(n)$ (men man förlorar data)
 
-| Liststorlek (n) | Bubble Sort Tid (s)   | BogoSort Tid (s)       |
-|-----------------|-----------------------|------------------------|
-| 10 | 2.3959e-05            | 7.25e-06               |
-| 100             | 0.0018963             | 3.2417e-05             |
-| 1000            | 0.18335               | 0.00034                |
-| 10000           | 19.1982               | 0.02047                |
-
-![[2a8aa996-211f-4073-9577-558a9da351f2.jpeg]]
+| N | Bubble Sort Time | Bogo Sort Time | Stalin Sort Time |
+|---|------------------|----------------|------------------|
+| 10 | 0.00001204 | 0.00000275 | 0.00000317 |
+| 100 | 0.00061279 | 0.00001442 | 0.00002183 |
+| 1000 | 0.06825250 | 0.00013858 | 0.00022954 |
+| 10000 | 6.98823908 | 0.00176546 | 0.00243521 |
+| 100000 | 1667.88195683 | 0.02953021 | 0.06166462 |
+![[cdc32ab0-8360-4a2b-ba84-689b3f014c94.jpeg]]

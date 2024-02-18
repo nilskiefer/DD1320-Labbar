@@ -24,6 +24,16 @@ def bogoSort(lista):
     return
 
 
+def stalinSort(lista):
+    n = len(lista) - 1
+    for i in range(n):
+        if lista[i] > lista[i + 1]:
+            lista.pop(i)
+    if isSorted(lista):
+        return lista
+    return "FAILED"
+
+
 def read_songs(filename):
     songs = []
     with open(filename, encoding="utf-8") as file:
@@ -38,16 +48,24 @@ def read_songs(filename):
 
 
 def testTimes(lista):
-    t_bubbleSort = timeit.timeit(lambda: bubbleSort(lista), number=3)
-    t_bogoSort = timeit.timeit(lambda: bogoSort(lista), number=3)
-    return t_bubbleSort, t_bogoSort
+    random.shuffle(lista)
+    t_bubbleSort = timeit.timeit(lambda: bubbleSort(lista), number=1)
+    t_bogoSort = timeit.timeit(lambda: bogoSort(lista), number=1)
+    t_stalinSort = timeit.timeit(lambda: stalinSort(lista), number=1)
+    return t_bubbleSort, t_bogoSort, t_stalinSort
 
 
 def main():
     list = read_songs("unique_tracks.txt")
-    for i in range(4):
+
+    # Print the markdown table
+    print("| N | Bubble Sort Time | Bogo Sort Time | Stalin Sort Time |")
+    print("|---|------------------|----------------|------------------|")
+
+    for i in range(5):
         n = 10 * 10**i
-        print("N: " + str(n), testTimes(list[:n]))
+        t_bubbleSort, t_bogoSort, t_stalinSort = testTimes(list[:n])
+        print(f"| {n} | {t_bubbleSort:.8f} | {t_bogoSort:.8f} | {t_stalinSort:.8f} |")
 
 
 if __name__ == "__main__":

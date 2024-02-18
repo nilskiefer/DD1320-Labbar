@@ -58,23 +58,33 @@ def read_songs(filename):
 
 
 def testTimes(lista):
+    slowAttempts = 10000
+    fastAttempts = 100000
     # Linjärsökning
-    linjtid = timeit.timeit(
-        stmt=lambda: linsok(lista, random.choice(lista)), number=10000
-    )
+    linjtid = (
+        timeit.timeit(
+            stmt=lambda: linsok(lista, random.choice(lista)), number=slowAttempts
+        )
+    ) / slowAttempts
     # Binärsökning
     lista.sort()
-    binjtid = timeit.timeit(
-        stmt=lambda: binary_search(lista, random.choice(lista)),
-        number=100000,
-    )
+
+    binjtid = (
+        timeit.timeit(
+            stmt=lambda: binary_search(lista, random.choice(lista)),
+            number=fastAttempts,
+        )
+    ) / fastAttempts
     # Hashtabellsökning
     hashCreationTime = timeit.timeit(stmt=lambda: create_hash_table(lista), number=1)
     # print("Skapandet av hashtabellen tog", round(hashCreationTime, 10), "sekunder")
     hash_table = create_hash_table(lista)
-    hashtid = timeit.timeit(
-        stmt=lambda: hash_search(hash_table, random.choice(lista)), number=100000
-    )
+    hashtid = (
+        timeit.timeit(
+            stmt=lambda: hash_search(hash_table, random.choice(lista)),
+            number=fastAttempts,
+        )
+    ) / fastAttempts
     return linjtid, binjtid, hashtid
 
 
@@ -89,10 +99,18 @@ def bubbleSort(lista):
 
 def main():
     list = read_songs("unique_tracks.txt")
-    print(testTimes(list[:250000]))
-    print(testTimes(list[:500000]))
-    print(testTimes(list[:1000000]))
-    print(testTimes(list))
+
+    print(
+        "| Deluppsättning Storlek | Linjärsökningstid | Binärsökningstid | Hashtabellsökningstid |"
+    )
+    print(
+        "|------------------------|-------------------|------------------|-----------------------|"
+    )
+    for i in range(6):
+        n = 10 * 10**i
+        partitionedSize = list[:n]
+        linjtid, binjtid, hashtid = testTimes(partitionedSize)
+        print(f"| {n} | {linjtid:.8f} | {binjtid:.8f} | {hashtid:.8f} |")
 
 
 if __name__ == "__main__":
