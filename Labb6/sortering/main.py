@@ -49,7 +49,7 @@ def read_songs(filename):
 
 def testTimes(lista):
     random.shuffle(lista)
-    t_bubbleSort = timeit.timeit(lambda: bubbleSort(lista), number=1)
+    t_bubbleSort = 0  # timeit.timeit(lambda: bubbleSort(lista), number=1)
     t_bogoSort = timeit.timeit(lambda: bogoSort(lista), number=1)
     t_stalinSort = timeit.timeit(lambda: stalinSort(lista), number=1)
     return t_bubbleSort, t_bogoSort, t_stalinSort
